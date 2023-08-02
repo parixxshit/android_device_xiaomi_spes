@@ -5,7 +5,6 @@ libsdsprpc.so
 libfastcvopt.so
 liblistensoundmodel2.so
 libOpenCL.so
-
 libflaw.so 64
 libarcsoft_high_dynamic_range.so 64
 libarcsoft_low_light_hdr.so 64
@@ -20,6 +19,5 @@ libarcsoft_supernight.so 64
 libwa_widelens_undistort.so 64
 libarcsoft_beautyshot.so 64
 libwa_depth.so 64
-
 libmpbase.so
 libalCFR.so

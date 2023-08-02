@@ -81,10 +81,8 @@
         <param key="input_mic_max_count" value="2"/>
     </config_params>
     <acdb_ids>
-        <!-- lct modify begin-->
         <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="15"/>
         <device name="SND_DEVICE_OUT_SPEAKER_REVERSE" acdb_id="15"/>
-        <!-- lct modify end-->
         <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED" acdb_id="124"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED" acdb_id="101"/>
         <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT" acdb_id="124"/>
@@ -104,7 +102,14 @@
         <device name="SND_DEVICE_IN_UNPROCESSED_THREE_MIC" acdb_id="145"/>
         <device name="SND_DEVICE_IN_UNPROCESSED_QUAD_MIC" acdb_id="146"/>
         <device name="SND_DEVICE_IN_UNPROCESSED_HEADSET_MIC" acdb_id="147"/>
-        <device name="SND_DEVICE_IN_HANDSET_GENERIC_QMIC" acdb_id="191"/>
+        <device name="SND_DEVICE_IN_HANDSET_GENERIC_QMIC" acdb_id="157"/>
+        <!-- lct modify begin-->
+        <device name="SND_DEVICE_OUT_ULTRASOUND" acdb_id="11007"/>
+        <device name="SND_DEVICE_OUT_ULTRASOUND_SUBSET" acdb_id="11007"/>
+        <device name="SND_DEVICE_OUT_ULTRASOUND_STEREO" acdb_id="11010"/>
+        <device name="SND_DEVICE_IN_ULTRASOUND" acdb_id="11004"/>
+        <device name="SND_DEVICE_IN_ULTRASOUND_SECONDARY" acdb_id="11004"/>
+        <!-- lct modify end-->
     </acdb_ids>
     <backend_names>
         <device name="SND_DEVICE_OUT_HEADPHONES" backend="headphones" interface="RX_CDC_DMA_RX_0"/>
