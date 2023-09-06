@@ -97,9 +97,6 @@ TARGET_USES_GRALLOC4 := true
 TARGET_USES_HWC2 := true
 TARGET_USES_ION := true
 
-# DTBO image
-BOARD_KERNEL_SEPARATED_DTBO := true
-
 # FM
 BOARD_HAVE_QCOM_FM := true
 
@@ -130,22 +127,16 @@ TARGET_RECOVERY_DEVICE_MODULES := init_xiaomi_spes
 
 # Kernel
 BOARD_KERNEL_BASE        := 0x00000000
-BOARD_KERNEL_IMAGE_NAME  := Image
+BOARD_KERNEL_IMAGE_NAME  := Image.gz
 BOARD_KERNEL_OFFSET      := 0x00008000
 BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_RAMDISK_OFFSET     := 0x01000000
 BOARD_TAGS_OFFSET        := 0x00000100
 
-BOARD_BOOT_HEADER_VERSION := 3
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
-BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
-
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
-
 BOARD_KERNEL_CMDLINE += \
     androidboot.console=ttyMSM0 \
+    androidboot.fstab_suffix=qcom \
+    androidboot.init_fatal_reboot_target=recovery \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
     androidboot.usbcontroller=4e00000.dwc3 \
@@ -158,12 +149,14 @@ BOARD_KERNEL_CMDLINE += \
     swiotlb=2048 \
     kpti=off
 
-BOARD_KERNEL_CMDLINE += androidboot.fstab_suffix=qcom
-BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
-TARGET_FORCE_PREBUILT_KERNEL := true
+BOARD_BOOT_HEADER_VERSION := 3
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+
 TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_CONFIG := vendor/bengal_defconfig
-TARGET_KERNEL_HEADERS := kernel/xiaomi/spes
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_KERNEL_SEPARATED_DTBO := true
+TARGET_KERNEL_CLANG_VERSION := r383902
+TARGET_KERNEL_CONFIG := vendor/spes-perf_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/spes
 
 # Lineage Health
